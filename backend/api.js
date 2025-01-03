@@ -8,6 +8,11 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+    res.status(200).send('Hello from Express on Vercel!');
+});
+
+module.exports = app;
 
 if (!process.env.GROQ_API_KEY) {
     console.error('ERROR: GROQ_API_KEY tidak ditemukan di file .env');
